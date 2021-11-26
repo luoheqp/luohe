@@ -1,0 +1,15 @@
+{
+  "name": "luohe",
+  "version": "1.0.0",
+  "repository": "https://github.com/luoheqp/luohe.git",
+  "author": "luohechen <luoheqp2020@gmail.com>",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "npmClient": "yarn",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
