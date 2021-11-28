@@ -1,0 +1,29 @@
+{
+  "name": "@tarot/judgement",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "leoljustsave <614429937@qq.com>",
+  "homepage": "https://github.com/luoheqp/tarot#readme",
+  "license": "ISC",
+  "main": "lib/judgement.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npm.taobao.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luoheqp/tarot.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/luoheqp/tarot/issues"
+  }
+}
