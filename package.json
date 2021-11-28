@@ -1,7 +1,7 @@
 {
-  "name": "luohe",
+  "name": "tarot",
   "version": "1.0.0",
-  "repository": "https://github.com/luoheqp/luohe.git",
+  "repository": "https://github.com/luoheqp/tarot.git",
   "author": "luohechen <luoheqp2020@gmail.com>",
   "private": true,
   "workspaces": [
