@@ -1,10 +1,10 @@
 import { exec } from "child_process";
-import { writeFileSync } from "fs";
+import { mkdirSync, writeFileSync } from "fs";
 
 import inquirer from "inquirer";
-import { installPkg } from './pkgManager';
 
-import { commitMsg, preCommit } from "../template/shell.mjs";
+import { installPkg } from './pkg.mjs';
+import { commitMsg, preCommit } from "../templates/shell.mjs";
 
 const DEFAULT_HUSKY_CONFIG_PATH = "./config/husky";
 
@@ -25,14 +25,16 @@ export const initialHusky = async () => {
   global.__configPath = configPath;
 
   await exec(`npx husky install ${huskyPath}`);
-  await initGitHook();
+  // await initGitHook();
 };
 
 const initGitHook = async () => {
+  initPreCommit();
   writeFileSync(`${global.__configPath}/commit-msg`, commitMsg);
-  writeFileSync(`${global.__configPath}/pre-commit`, preCommit);
 };
 
 const initPreCommit = async () => {
   await installPkg('lint-staged', true);
+  await exec(`npx husky add ${global.__huskyPath}/pre-commit`)
+  writeFileSync(`${global.__configPath}/pre-commit`, preCommit);
 };

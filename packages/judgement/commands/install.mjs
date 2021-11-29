@@ -2,8 +2,8 @@
 import path from "path";
 import { readFileSync } from "fs";
 
-import { installPkg } from "../utils/pkgManager.mjs";
-import { initialHusky } from "../utils/husky.mjs";
+import { installPkg } from "../modules/pkg.mjs";
+import { initialHusky } from "../modules/husky.mjs";
 
 const __dirname = path.resolve();
 
