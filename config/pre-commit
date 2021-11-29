@@ -1,0 +1,17 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# email check
+# EMAIL=$(git config user.email)
+# if [[ ! $EMAIL =~ ^[.[:alpha:]]+@lizhi\.fm$ ]];
+# then
+#   echo "Your git information is not valid";
+#   echo "Please run:"
+#   echo '   git config --local user.name "<your name>"'
+#   echo '   git config --local user.email "<your name>@lizhi.fm"'
+#   echo 'to fix.'
+#   exit 1;
+# fi;
+
+# staged file check
+npx --no-install lint-staged --config $LINT_STAGED_CONFIG_PATH/lint-staged.config.js --allow-empty "$1"

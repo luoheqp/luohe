@@ -5,7 +5,10 @@
   "author": "leoljustsave <614429937@qq.com>",
   "homepage": "https://github.com/luoheqp/tarot#readme",
   "license": "ISC",
-  "main": "lib/judgement.js",
+  "bin": {
+    "judgement": "index.mjs"
+  },
+  "main": "index.mjs",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -25,5 +28,11 @@
   },
   "bugs": {
     "url": "https://github.com/luoheqp/tarot/issues"
+  },
+  "dependencies": {
+    "commander": "^8.3.0",
+    "execa": "^6.0.0",
+    "husky": "^7.0.4",
+    "inquirer": "^8.2.0"
   }
 }
