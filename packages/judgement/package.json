@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "commander": "^8.3.0",
-    "execa": "^6.0.0",
     "husky": "^7.0.4",
     "inquirer": "^8.2.0"
   }
