@@ -17,14 +17,11 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "http://registry.npm.taobao.org/"
+    "registry": "http://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luoheqp/tarot.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/luoheqp/tarot/issues"
