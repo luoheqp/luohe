@@ -1,0 +1,23 @@
+{
+  "name": "@luohe_tarot/the-world",
+  "version": "0.1.1",
+  "description": "> TODO: description",
+  "author": "luohechen <luoheqp2020@gmail.com>",
+  "homepage": "https://github.com/luoheqp/tarot#readme",
+  "license": "ISC",
+  "lib": {
+    "world": "index.mjs"
+  },
+  "main": "index.mjs",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luoheqp/tarot.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/luoheqp/tarot/issues"
+  }
+}
