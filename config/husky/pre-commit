@@ -14,4 +14,4 @@
 # fi;
 
 # staged file check
-npx --no-install lint-staged --config $LINT_STAGED_CONFIG_PATH/lint-staged.config.js --allow-empty "$1"
+npx lint-staged --config ./config/lint-staged.config.js --allow-empty "$1"
