@@ -2,7 +2,7 @@ export const commitMsg =
   "#!/bin/sh\n" +
   '. "$(dirname "$0")/_/husky.sh"\n' +
   "\n" +
-  'npx --no-install commitlint --config $COMMITLINT_CONFIG_PATH/commitlint.config.js --edit "$1"\n' +
+  'npx commitlint --config $COMMITLINT_CONFIG_PATH/commitlint.config.js --edit "$1"\n' +
   "\n" +
   "# START EMOJI\n" +
   "commit_msg=$(cat .git/COMMIT_EDITMSG)\n" +
@@ -30,6 +30,8 @@ export const commitMsg =
   "echo $res_msg >.git/COMMIT_EDITMSG\n" +
   "# END EMOJI\n";
 
+export const commitMsgSign = "$COMMITLINT_CONFIG_PATH";
+
 export const preCommit =
   "#!/bin/sh\n" +
   '. "$(dirname "$0")/_/husky.sh"\n' +
@@ -47,4 +49,6 @@ export const preCommit =
   "# fi;\n" +
   "\n" +
   "# staged file check\n" +
-  'npx --no-install lint-staged --config $LINT_STAGED_CONFIG_PATH/lint-staged.config.js --allow-empty "$1"\n';
+  'npx lint-staged --config $LINT_STAGED_CONFIG_PATH/lint-staged.config.js --allow-empty "$1"\n';
+
+export const preCommitSign = "$LINT_STAGED_CONFIG_PATH";

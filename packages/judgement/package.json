@@ -1,6 +1,6 @@
 {
   "name": "@tarot/judgement",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "> TODO: description",
   "author": "leoljustsave <614429937@qq.com>",
   "homepage": "https://github.com/luoheqp/tarot#readme",
@@ -30,6 +30,7 @@
     "url": "https://github.com/luoheqp/tarot/issues"
   },
   "dependencies": {
+    "chalk": "^5.0.0",
     "commander": "^8.3.0",
     "husky": "^7.0.4",
     "inquirer": "^8.2.0"
