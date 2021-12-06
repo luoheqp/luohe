@@ -2,14 +2,22 @@
   "name": "@luohe_tarot/the-world",
   "version": "0.1.1",
   "description": "> TODO: description",
-  "author": "luohechen <luoheqp2020@gmail.com>",
+  "author": "leoljustsave <614429937@qq.com>",
   "homepage": "https://github.com/luoheqp/tarot#readme",
   "license": "ISC",
   "lib": {
     "world": "index.mjs"
   },
   "main": "index.mjs",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
   "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
   "repository": {
