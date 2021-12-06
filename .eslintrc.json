@@ -1,5 +1,5 @@
 {
-  // "parser": "@babel/eslint-parser",
+  "parser": "@babel/eslint-parser",
   "root": true,
   "extends": [
     "prettier"
@@ -16,6 +16,9 @@
     "react": {
       "version": "detect"
     }
+  },
+  "parserOptions": {
+    "requireConfigFile": false
   }
   // "overrides": [
   //   {
