@@ -10,7 +10,8 @@
   "license": "MIT",
   "prettier": "./config/.prettierrc.json",
   "scripts": {
-    "prepare": "husky install ./config/husky"
+    "prepare": "husky install ./config/husky",
+    "format": "prettier --wirte ./packages"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

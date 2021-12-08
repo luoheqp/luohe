@@ -1,26 +1,26 @@
-import { exec, execSync } from "child_process";
-import { writeFileSync } from "fs";
+import { exec, execSync } from 'child_process';
+import { writeFileSync } from 'fs';
 
-import inquirer from "inquirer";
+import inquirer from 'inquirer';
 
-import { installPkg } from "./pkg.mjs";
-import { commitMsg, commitMsgSign, preCommit, preCommitSign } from "../templates/shell.mjs";
-import { lintStagedConfig, commitLintConfig } from "../templates/config.mjs";
+import { installPkg } from './pkg.mjs';
+import { commitMsg, commitMsgSign, preCommit, preCommitSign } from '../templates/shell.mjs';
+import { lintStagedConfig, commitLintConfig } from '../templates/config.mjs';
 
-const DEFAULT_HUSKY_CONFIG_PATH = "./config/husky";
+const DEFAULT_HUSKY_CONFIG_PATH = './config/husky';
 
 export const initialHusky = async () => {
   const { huskyPath } = await inquirer.prompt({
-    type: "input",
-    name: "huskyPath",
-    message: `set your husky config path`,
+    type: 'input',
+    name: 'huskyPath',
+    message: 'set your husky config path',
     default() {
       return DEFAULT_HUSKY_CONFIG_PATH;
     },
   });
-  let configPath = huskyPath.split("/");
+  let configPath = huskyPath.split('/');
   configPath.length--;
-  configPath = configPath.join("/");
+  configPath = configPath.join('/');
 
   global.__huskyPath = huskyPath;
   global.__configPath = configPath;
@@ -37,7 +37,7 @@ const initGitHook = async () => {
 const initPreCommit = async () => {
   const { __huskyPath, __configPath } = global;
 
-  await installPkg("lint-staged", true);
+  await installPkg('lint-staged', true);
   execSync(`npx husky add ${__huskyPath}/pre-commit`);
 
   // 写入 pre-commit hook 内容以及 lint-staged 配置内容
@@ -50,7 +50,7 @@ const initPreCommit = async () => {
 const initCommitMsg = async () => {
   const { __huskyPath, __configPath } = global;
 
-  await installPkg(["@commitlint/cli", "@commitlint/config-conventional"], true);
+  await installPkg(['@commitlint/cli', '@commitlint/config-conventional'], true);
   execSync(`npx husky add ${__huskyPath}/commit-msg`);
 
   const dealedCommitMsg = commitMsg.replace(commitMsgSign, __configPath);
@@ -58,3 +58,5 @@ const initCommitMsg = async () => {
   writeFileSync(`${__huskyPath}/commit-msg`, dealedCommitMsg);
   writeFileSync(`${__configPath}/commitlint.config.js`, commitLintConfig);
 };
+
+initialHusky();
