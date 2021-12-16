@@ -2,6 +2,7 @@
 import path from 'path';
 import { readFileSync } from 'fs';
 import { exit } from 'process';
+
 import chalk from 'chalk';
 
 import { installPkg } from '../modules/pkg.mjs';

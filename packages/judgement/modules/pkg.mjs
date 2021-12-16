@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 import { exec } from 'child_process';
 
+import ora from 'ora';
+
 // check yarn
 export const checkPkgManager = async () => {
   if (typeof global.__pkgManager === 'string') {
@@ -29,10 +31,16 @@ export const installPkg = async (pkgName, d = false) => {
     installList = pkgName;
   }
 
+  let spinner = ora(`installing ${installList}`);
+  
+  spinner.start();
   try {
     await exec(`${__pkgManager} add ${installList} ${d ? '-D' : ''} ${pkgPrivite ? '-W' : ''}`);
-    console.log(`install ${installList} success!`);
+    spinner.succeed(`install ${installList} success`);
   } catch {
-    return new Error('utils/installPkg error');
+    spinner.fail(`install ${installList} fail`);
+    throw new Error('utils/installPkg error');
+  } finally {
+    spinner.stop();
   }
 };
