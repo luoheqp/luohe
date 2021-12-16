@@ -1,15 +1,12 @@
 #! /usr/bin/env node
-import path from 'path';
-import { readFileSync } from 'fs';
 import { exit } from 'process';
 
 import chalk from 'chalk';
 
 import { installPkg } from '../modules/pkg.mjs';
 import { initialHusky } from '../modules/husky.mjs';
+import { initialPrettier } from '../modules/prettier.mjs';
 import { checkFileExist } from '../modules/file.mjs';
-
-const __dirname = path.resolve();
 
 // check is git init
 if (!checkFileExist('./.git')) {
@@ -17,11 +14,14 @@ if (!checkFileExist('./.git')) {
   exit(1);
 }
 
-// move pkg config to global
-const pkgConfig = JSON.parse(readFileSync(`${__dirname}/package.json`));
-global.__pkgConfig = {
-  private: pkgConfig.private,
-};
+// check is lib init
+if (!checkFileExist('./package.json')) {
+  console.error(chalk.red('Please use yarn or npm to init repo first'));
+  exit(1);
+}
+
+// init prettier
+await initialPrettier();
 
 // install husky
 await installPkg('husky', true);
