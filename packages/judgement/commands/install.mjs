@@ -28,3 +28,5 @@ await installPkg('husky', true);
 
 // init husky config
 await initialHusky();
+
+console.log(chalk.greenBright('Judgement is ready!'));

@@ -1,4 +1,4 @@
-import { exec, execSync } from 'child_process';
+import { execSync } from 'child_process';
 import { writeFileSync } from 'fs';
 
 import inquirer from 'inquirer';
@@ -18,6 +18,7 @@ export const initialHusky = async () => {
       return DEFAULT_HUSKY_CONFIG_PATH;
     },
   });
+
   let configPath = huskyPath.split('/');
   configPath.length--;
   configPath = configPath.join('/');
@@ -58,5 +59,3 @@ const initCommitMsg = async () => {
   writeFileSync(`${__huskyPath}/commit-msg`, dealedCommitMsg);
   writeFileSync(`${__configPath}/commitlint.config.js`, commitLintConfig);
 };
-
-initialHusky();

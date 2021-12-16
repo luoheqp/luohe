@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-import { exec } from 'child_process';
+import { execSync } from 'child_process';
 
 import ora from 'ora';
 
@@ -10,7 +10,7 @@ export const checkPkgManager = async () => {
   }
 
   try {
-    await exec('yarn -v');
+    execSync('yarn -v');
     global.__pkgManager = 'yarn';
   } catch {
     global.__pkgManager = 'npm';
@@ -35,7 +35,7 @@ export const installPkg = async (pkgName, d = false) => {
   
   spinner.start();
   try {
-    await exec(`${__pkgManager} add ${installList} ${d ? '-D' : ''} ${pkgPrivite ? '-W' : ''}`);
+    execSync(`${__pkgManager} add ${installList} ${d ? '-D' : ''} ${pkgPrivite ? '-W' : ''}`);
     spinner.succeed(`install ${installList} success`);
   } catch {
     spinner.fail(`install ${installList} fail`);
