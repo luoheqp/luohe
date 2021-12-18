@@ -1,0 +1,26 @@
+{
+  "name": "the-star",
+  "version": "0.0.0",
+  "description": "sass mixin lib",
+  "keywords": [
+    "sass",
+    "mixin"
+  ],
+  "author": "luohechen <luoheqp2020@gmail.com>",
+  "homepage": "https://github.com/luoheqp/tarot#readme",
+  "license": "ISC",
+  "main": "lib/the-star.js",
+  "publishConfig": {
+    "registry": "http://r.tnpm.oa.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luoheqp/tarot.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/luoheqp/tarot/issues"
+  }
+}

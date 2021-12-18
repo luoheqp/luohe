@@ -1,0 +1,75 @@
+// #region => flex layout
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-c-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-r-center {
+  display: flex;
+  justify-content: center;
+}
+// #endregion
+
+// #region => absolute layout
+@mixin abs-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin abs-c-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin abs-r-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin abs-full {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+// #endregion
+
+// #region => fixed layout
+@mixin fixed-center {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin fixed-c-center {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin fixed-r-center {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin fixed-full {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+// #endregion
