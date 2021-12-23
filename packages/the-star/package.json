@@ -18,7 +18,7 @@
     "url": "git+https://github.com/luoheqp/tarot.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "postinstall": "node -e \"try { require('./postinstall'); } catch(e) {}\""
   },
   "bugs": {
     "url": "https://github.com/luoheqp/tarot/issues"
