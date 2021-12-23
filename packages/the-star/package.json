@@ -18,9 +18,16 @@
     "url": "git+https://github.com/luoheqp/tarot.git"
   },
   "scripts": {
+    "prefix": "postcss --use autoprefixer -r true ./**/*.scss",
     "postinstall": "node -e \"try { require('./postinstall'); } catch(e) {}\""
   },
   "bugs": {
     "url": "https://github.com/luoheqp/tarot/issues"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "postcss-scss": "^4.0.2"
   }
 }

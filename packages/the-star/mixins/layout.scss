@@ -1,4 +1,4 @@
-// #region => flex layout
+/* #region => flex layout*/
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -14,9 +14,9 @@
   display: flex;
   justify-content: center;
 }
-// #endregion
+/* #endregion*/
 
-// #region => absolute layout
+/* #region => absolute layout*/
 @mixin abs-center {
   position: absolute;
   left: 50%;
@@ -43,9 +43,9 @@
   bottom: 0;
   left: 0;
 }
-// #endregion
+/* #endregion*/
 
-// #region => fixed layout
+/* #region => fixed layout*/
 @mixin fixed-center {
   position: fixed;
   left: 50%;
@@ -72,4 +72,4 @@
   bottom: 0;
   left: 0;
 }
-// #endregion
+/* #endregion*/
