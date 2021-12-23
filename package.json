@@ -11,7 +11,8 @@
   "prettier": "./config/.prettierrc.json",
   "scripts": {
     "prepare": "husky install ./config/husky",
-    "format": "prettier --wirte ./packages"
+    "format": "prettier --wirte ./packages",
+    "test": ""
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
