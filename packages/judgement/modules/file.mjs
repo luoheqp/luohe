@@ -16,7 +16,7 @@ export const mkdir = (dirPath) => {
 export const findConfig = async (module) => {
   if (!module) return {};
 
-  const explorer = cosmiconfig(module);
+  const explorer = await cosmiconfig(module);
   const { config, filepath } = await explorer.search() || {};
 
   return { config, filepath };

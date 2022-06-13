@@ -10,15 +10,21 @@ import path from 'path';
 const __dirname = path.resolve();
 
 export const initialPrettier = async () => {
-  // 检测 prettier 配置以及 prettier 是否安装
+  // NOTE: 检测 prettier 配置以及 prettier 是否安装
   const prettierFlag = await checkLibExist('prettier');
+  if (!prettierFlag) {
+    const ans = await askInstallPrettier();
+    if (!ans) return;
+  }
 
-  if (!prettierFlag) await askPrettier();
+  const { filepath } = await findConfig('prettier');
+  !filepath && await askCreateConfig();
 };
 
-const askPrettier = async () => {
+// 安装 prettier
+const askInstallPrettier = async () => {
   const { ans } = await inquirer.prompt({
-    type: 'boolean',
+    type: 'confirm',
     name: 'ans',
     message: 'not found prettier, install it?',
     default() {
@@ -26,20 +32,22 @@ const askPrettier = async () => {
     },
   });
 
-  ans && installPrettier();
+  ans && await installPkg('prettier', true);
+  return ans;
 };
 
-const installPrettier = async () => {
-  await installPkg('prettier', true);
+// 配置 prettier config
+const askCreateConfig = async () => {
+  const { ans } = await inquirer.prompt({
+    type: 'confirm',
+    name: 'ans',
+    message: 'not find prettier config, use judgement defualt?',
+    default() {
+      return true;
+    },
+  });
 
-  // 查询是否有配置文件存在
-  const { filepath } = findConfig('prettier');
-  if (!filepath) pastNewConfig();
-};
+  if (!ans) return;
 
-const pastNewConfig = async (type = 'json') => {
-  if (type === 'json') {
-    execSync('touch ./prettierrc.json');
-    writeFileSync(path.resolve(__dirname, './.prettierrc.json'), JSON_TYPE);
-  }
+  writeFileSync(path.resolve(__dirname, './.prettierrc.json'), JSON_TYPE);
 };

@@ -8,13 +8,13 @@ import { initialHusky } from '../modules/husky.mjs';
 import { initialPrettier } from '../modules/prettier.mjs';
 import { checkFileExist } from '../modules/file.mjs';
 
-// check is git init
+// check git
 if (!checkFileExist('./.git')) {
   console.error(chalk.red('Please init git first'));
   exit(1);
 }
 
-// check is lib init
+// check pkg file
 if (!checkFileExist('./package.json')) {
   console.error(chalk.red('Please use yarn or npm to init repo first'));
   exit(1);
